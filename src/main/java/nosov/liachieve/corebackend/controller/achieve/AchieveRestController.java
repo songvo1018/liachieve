@@ -1,4 +1,4 @@
-package nosov.liachieve.corebackend.controller;
+package nosov.liachieve.corebackend.controller.achieve;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import nosov.liachieve.corebackend.entity.Achieve;
-import nosov.liachieve.corebackend.dto.CreateAchieveDTO;
+import nosov.liachieve.corebackend.dto.achieve.CreateAchieveDTO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

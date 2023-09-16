@@ -1,7 +1,7 @@
-package nosov.liachieve.corebackend.controller;
+package nosov.liachieve.corebackend.controller.achieve;
 
 import nosov.liachieve.corebackend.entity.Achieve;
-import nosov.liachieve.corebackend.dto.CreateAchieveDTO;
+import nosov.liachieve.corebackend.dto.achieve.CreateAchieveDTO;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

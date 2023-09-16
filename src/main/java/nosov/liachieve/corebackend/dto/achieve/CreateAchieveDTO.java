@@ -1,4 +1,4 @@
-package nosov.liachieve.corebackend.dto;
+package nosov.liachieve.corebackend.dto.achieve;
 
 import lombok.Getter;
 import lombok.Setter;

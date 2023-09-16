@@ -1,7 +1,7 @@
-package nosov.liachieve.corebackend.controller;
+package nosov.liachieve.corebackend.controller.user;
 
-import nosov.liachieve.corebackend.dto.UserDTO;
-import nosov.liachieve.corebackend.dto.UserStatsDTO;
+import nosov.liachieve.corebackend.dto.user.UserDTO;
+import nosov.liachieve.corebackend.dto.user.UserStatsDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
