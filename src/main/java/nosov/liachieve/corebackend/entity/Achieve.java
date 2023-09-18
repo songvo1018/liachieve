@@ -2,7 +2,11 @@ package nosov.liachieve.corebackend.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +17,11 @@ import lombok.Setter;
 @Setter
 public class Achieve {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long a_id;
+    @ManyToOne
+    @JoinColumn(name="u_id")
+    private User user;
     @Schema(type = "string", description = "target of achieve, some (maybe graceful) text")
     private String target;
 
