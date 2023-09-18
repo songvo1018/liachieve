@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import nosov.liachieve.corebackend.entity.Achieve;
 import nosov.liachieve.corebackend.dto.achieve.CreateAchieveDTO;
+import nosov.liachieve.corebackend.service.AchieveService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,10 @@ import java.util.List;
 @Tag(name = "Achieve")
 @RestController
 public class AchieveRestController implements AchieveController {
+    private final AchieveService achieveService;
+    public AchieveRestController(AchieveService achieveService) {
+        this.achieveService = achieveService;
+    }
 
     @Operation(description = "get achieve data by achieve id", responses = {
             @ApiResponse(responseCode = "200",
@@ -30,7 +35,8 @@ public class AchieveRestController implements AchieveController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public ResponseEntity<Achieve> getAchieve(@PathVariable long a_id) {
-        return null;
+        Achieve foundedAchieve = achieveService.findById(a_id);
+        return ResponseEntity.ok(foundedAchieve);
     }
 
     @Operation(description = "get achieve data by user id", responses = {
@@ -40,10 +46,11 @@ public class AchieveRestController implements AchieveController {
                     }),
             @ApiResponse(responseCode = "404")
     })
-    @GetMapping("/achieve/{u_id}")
+    @GetMapping("/achieves/{u_id}")
     @Override
     public ResponseEntity<List<Achieve>> getUserAchieves(@PathVariable long u_id) {
-        return null;
+        List<Achieve> foundedAchievesByUserId = achieveService.findByUserId(u_id);
+        return ResponseEntity.ok(foundedAchievesByUserId);
     }
 
     @Operation(description = "create achieve ", responses = {
@@ -55,7 +62,8 @@ public class AchieveRestController implements AchieveController {
     @PostMapping("/achieve/create")
     @Override
     public ResponseEntity<Achieve> createAchieve(@RequestBody CreateAchieveDTO achieveDTO) {
-        return null;
+        Achieve achieve = achieveService.create(achieveDTO);
+        return ResponseEntity.ok(achieve);
     }
 
     @Operation(description = "close achieve by achive id ", responses = {
@@ -68,6 +76,7 @@ public class AchieveRestController implements AchieveController {
     @PostMapping("/achieve/close")
     @Override
     public ResponseEntity<Achieve> closeAchieve(@RequestParam long a_id) {
-        return null;
+        Achieve closedAchieve = achieveService.close(a_id);
+        return ResponseEntity.ok(closedAchieve);
     }
 }
